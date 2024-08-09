@@ -22,8 +22,9 @@ export const TableList = ({students}:Props) =>{
       alert("Max Limit reeachrd")
     }
       },[students])
+      
     return(
-        <TableContainer component={Paper} sx={{width:400 ,margin:0,padding:4 , border:'1px solid blue'}}>
+        <TableContainer component={Paper} sx={{width:700 ,margin:0,padding:4 , border:'1px solid blue'}}>
         <Table size="small" sx={{border:2, background:"#1099"}}>
       <TableHead>
         <TableRow>
@@ -39,7 +40,7 @@ export const TableList = ({students}:Props) =>{
         return(
         
           <TableRow>
-          <TableCell>{item.name}</TableCell>
+          <TableCell>{item.fullName}</TableCell>
           <TableCell>{item.age}</TableCell>
           <TableCell> {item.email}</TableCell>
           <TableCell>{item.class}</TableCell>
