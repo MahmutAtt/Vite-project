@@ -6,6 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { useEffect } from "react";
 
 //import { colors } from "@mui/material";
 interface Props{
@@ -14,7 +15,13 @@ interface Props{
 }
 
   
-export const TableList = (props:Props) =>{
+export const TableList = ({students}:Props) =>{
+
+  useEffect(()=> {
+    if(students.length ===5){
+      alert("Max Limit reeachrd")
+    }
+      },[students])
     return(
         <TableContainer component={Paper} sx={{width:400 ,margin:0,padding:4 , border:'1px solid blue'}}>
         <Table size="small" sx={{border:2, background:"#1099"}}>
@@ -27,7 +34,8 @@ export const TableList = (props:Props) =>{
         </TableRow>
       </TableHead>
       <TableBody>
-       {props.students.map((item) =>{
+       {students.map((item) =>{
+      
         return(
         
           <TableRow>
