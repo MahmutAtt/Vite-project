@@ -1,3 +1,11 @@
-export const data = [{id:1,name:"ahmmet",age:"40",email:"ahmet@gmail.com",class:"mdf"},
-    {id:2,name:"omer",age:"50",email:"omer@gmail.com",class:"rdf"}
+ export interface student {
+    id:number
+    name:string
+    age:number
+    email:string
+    class:string
+
+}
+export const data:student[] = [{id:1,name:"ahmmet",age:30,email:"ahmet@gmail.com",class:"mdf"},
+    {id:2,name:"omer",age:20,email:"omer@gmail.com",class:"rdf"}
   ];
