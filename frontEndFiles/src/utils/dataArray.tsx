@@ -1,4 +1,4 @@
- export interface student {
+ export interface Student {
     id:number
     fullName:string
     age:string
@@ -7,7 +7,7 @@
     eligible1?:string
 
 }
-export const data:student[] =  [ 
+export const data:Student[] =  [ 
     {
       id:1,
       fullName: "John Doe",
