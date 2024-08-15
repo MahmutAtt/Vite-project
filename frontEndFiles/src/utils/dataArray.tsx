@@ -4,6 +4,7 @@
     age:string
     email:string
     class:string
+    eligible1?:string
 
 }
 export const data:student[] =  [ 

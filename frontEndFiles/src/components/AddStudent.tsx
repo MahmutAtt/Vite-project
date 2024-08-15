@@ -6,7 +6,7 @@ interface Props{
     students :student[] 
     setStudents:Dispatch<SetStateAction<student[]>>;
 } 
-const initialState={id:111,fullName:"",age: "" ,email:"",class:""}
+const initialState={id:111,fullName:"",age: "" ,email:"",class:"" ,eligible:""}
 export const AddStudent = ({setStudents,students}:Props) =>{
   const [formData,setFormData] = useState(initialState)
      
@@ -35,6 +35,7 @@ useEffect(()=>{
         <TextField value={formData.age} onChange={InputChange}  id="outlined-basic" label="Age" name="age" variant="outlined" />
         <TextField  value={formData.email} onChange={InputChange}  id="outlined-basic" label="Email" name="email" variant="outlined" />
         <TextField value={formData.class} onChange={InputChange} id="outlined-basic" label="Class" name="class" variant="outlined" />
+        <TextField value={formData.eligible} onChange={InputChange} id="outlined-basic" label="Eligible" name="eligible" variant="outlined" />
         <Button onClick={handleSubmit} variant="contained" >Submit</Button>
         </Paper>
         
