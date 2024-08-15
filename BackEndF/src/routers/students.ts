@@ -23,7 +23,7 @@ router.get( "/students",async (req,res) =>{
     const data = req.body;
     const newStudent = await studentModel.create(data)
     newStudent.save()
-    res.status(201).send(newStudent);
+    res.status(201);
   
   });
   //update student
