@@ -3,9 +3,14 @@ import { studentModel } from "../models/student";
 const router = express.Router();
 // Tüm Öğrencileri Getir
 router.get( "/",async (req,res) =>{ 
+  try {
     const students = await studentModel.find();// Veritabanından tüm öğrenci kayıtlarını alır
     res.status(200).send(students);// Öğrenci verilerini yanıt olarak gönderir
-  
+  }catch{
+    res.status(500).send("something went wrong");
+
+  }
+   
   });
   // Belirli Bir Öğrenciyi Getir
   router.get("/:id",async(req ,res)=>{
@@ -18,14 +23,19 @@ router.get( "/",async (req,res) =>{
     res.send(student);
   
   });
-  // Yeni Öğrenci Ekle
+  //  add new student 
   router.post ("/",async(req,res)=>{
-    const data = req.body;
-    const newStudent = await studentModel.create(data)
-    newStudent.save()
-    res.status(201);
-  
+    try{
+      const data = req.body;
+      const newStudent = await studentModel.create(data)
+      newStudent.save()
+      res.status(201).send(newStudent);
+    }catch(err:any){
+      res.status(500).send(err.message);
+
+    }
   });
+  
   //update student
   router.put("/:id",async(req,res)=>{
     const id = req.params.id;

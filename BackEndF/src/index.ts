@@ -6,7 +6,7 @@ import cors from "cors";
 const app = express()
 const port = 3000;
 app.use(cors({
-    origin:"http://localhost:5174"
+    origin:"http://localhost:5175"
 }));
 app.use(express.json());
 
