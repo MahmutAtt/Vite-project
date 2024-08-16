@@ -29,10 +29,13 @@ const handleSubmit = async ()=>{
 useEffect(()=>{
   if(formData.fullName === "Admin"){
     alert("error")
+    if (!formData.age || +(formData.age) <= 0) {
+      alert("Error: Age must be a positive number.");
+    }
 
   }
 
-    },[formData.fullName])
+    },[formData]);
     return(
         <>
         <Paper sx={{width:400, padding:4,border:'1px solid blue', marginTop:2 , gap:1 ,display:'flex',flexDirection:"column"}}>
