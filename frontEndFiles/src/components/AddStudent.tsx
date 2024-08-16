@@ -1,6 +1,7 @@
 import { Button, Paper, TextField } from "@mui/material"
 import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from "react"
 import { student }from "../utils/dataArray";
+import { createStudent } from "../api/students";
 
 interface Props{
     students :student[] 
@@ -16,11 +17,15 @@ const InputChange = (e : ChangeEvent<HTMLInputElement>) => {
    setFormData({...formData,[e.target.name]:e.target.value})
 };
    
-const handleSubmit =()=>{
-   setStudents([...students ,formData]);
-   setFormData(initialState)
- };
-
+const handleSubmit = async ()=>{
+  try{ 
+    const data = await createStudent(formData)
+   setStudents([...students ,data]);
+   setFormData(initialState);
+ } catch(err){
+  alert(err);
+ }
+};
 useEffect(()=>{
   if(formData.fullName === "Admin"){
     alert("error")

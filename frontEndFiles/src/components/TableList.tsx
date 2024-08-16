@@ -19,7 +19,7 @@ interface Props{
 export const TableList = ({students}:Props) =>{
 
   useEffect(()=> {
-    if(students.length ===5){
+    if(students.length ===6){
       alert("Max Limit reeachrd")
     }
       },[students])
