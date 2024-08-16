@@ -2,13 +2,13 @@ import  express  from "express";
 import { studentModel } from "../models/student";
 const router = express.Router();
 // Tüm Öğrencileri Getir
-router.get( "/students",async (req,res) =>{ 
+router.get( "/",async (req,res) =>{ 
     const students = await studentModel.find();// Veritabanından tüm öğrenci kayıtlarını alır
     res.status(200).send(students);// Öğrenci verilerini yanıt olarak gönderir
   
   });
   // Belirli Bir Öğrenciyi Getir
-  router.get("/students/:id",async(req ,res)=>{
+  router.get("/:id",async(req ,res)=>{
     const id = req.params.id;
     const student = await studentModel.findById(id);
     if(!student){
